@@ -277,7 +277,7 @@ img {
 .what__flex {
     display: flex;
     flex-wrap: wrap;
-    gap: 160px;
+    gap: 60px 160px;
 }
 
 .what__flex-item {
