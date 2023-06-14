@@ -1,0 +1,510 @@
+<?php require_once 'connect.php'; ?>
+<?php
+session_start();
+?>
+<?php
+$sql = $pdo->prepare("SELECT * FROM info");
+$sql->execute();
+$res = $sql->fetchAll(PDO::FETCH_ASSOC);
+
+$city = 'Пенза';
+$number = '+78412720222';
+$verification = '<meta name="yandex-verification" content="c04916dfd1e3e3e9" />';
+$callibri = '<script src="//cdn.callibri.ru/callibri.js" type="text/javascript" charset="utf-8"></script>';
+$metrica = '
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+    (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+    m[i].l=1*new Date();
+    for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+    k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+    (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+    ym(93928494, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true,
+        webvisor:true
+    });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/93928494" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+' ?>
+
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Аварийные коммисары</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+    <?php echo $metrica ?>
+    <?php echo $verification ?>
+    <?php echo $callibri ?>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="header__up-flex">
+                <div class="header__up-flex-item">
+                    <svg class="header__up-flex-svg" width="18" height="25" viewBox="0 0 18 25" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M9.44133 24.3198C11.2502 22.5015 18 15.2879 18 8.88166C18 6.65881 17.0518 4.52676 15.364 2.955C13.676 1.383 11.3868 0.5 9 0.5C6.61315 0.5 4.32372 1.383 2.63597 2.955C0.948162 4.52681 0 6.65885 0 8.88166C0 15.2879 6.74958 22.5017 8.55867 24.3198C8.67252 24.4347 8.83231 24.5 9.00009 24.5C9.16787 24.5 9.32748 24.4347 9.44133 24.3198ZM4.30858 8.88166C4.30858 7.72319 4.80274 6.61195 5.68238 5.79276C6.56223 4.97338 7.75526 4.51319 8.99944 4.51319C10.2436 4.51319 11.4366 4.97338 12.3165 5.79276C13.1961 6.61195 13.6903 7.72319 13.6903 8.88166C13.6903 10.0403 13.1961 11.1516 12.3165 11.9708C11.4366 12.7899 10.2436 13.2503 8.99944 13.2503C7.75526 13.2503 6.56223 12.7899 5.68238 11.9708C4.80273 11.1516 4.30858 10.0403 4.30858 8.88166Z"
+                            fill="#01A77A" />
+                    </svg>
+                    <p class="header__up-flex-city">
+                        <?php echo $city ?>
+                    </p>
+                </div>
+                <p class="header__up-flex-work">
+                    Работаем <b class="header__up-flex-work-b">24/7</b>
+                </p>
+                <svg class="header__up-flex-svg2" width="28" height="28" viewBox="0 0 28 28" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle class="header__up-flex-svg2-circle" cx="14" cy="14" r="14" fill="#01A77A"
+                        fill-opacity="0.2" />
+                    <circle cx="14" cy="14" r="13.5" stroke="#01A77A" stroke-opacity="0.5" />
+                    <circle cx="14.0001" cy="14.0001" r="6.22222" fill="#01A77A" />
+                </svg>
+
+                <p class="header__up-flex-inline">
+                    Комиссаров на линии: 6
+                </p>
+                <a href="tel:<?php echo $number ?>" class="header__up-flex-btn btn-1">
+                    <svg class="header__up-flex-btn-svg" width="18" height="18" viewBox="0 0 18 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M16.2452 11.7549C15.3788 10.8948 13.9799 10.8948 13.1135 11.7549L12.5872 12.2876C12.1188 12.756 11.3808 12.8267 10.8353 12.4545C8.74962 11.0295 6.97197 9.25162 5.54729 7.16554C5.17514 6.61995 5.2456 5.88181 5.71417 5.41333L6.24675 4.88693C7.10666 4.02041 7.10666 2.62123 6.24675 1.75472L5.13014 0.644368C4.27023 -0.222145 2.86484 -0.222145 1.95993 0.689357C-0.324884 2.97427 -0.652177 6.51709 1.18968 9.11682C3.30746 12.1079 5.89353 14.6944 8.88409 16.8126C10.0136 17.6084 11.3163 18 12.6253 18C14.3195 18 16.0201 17.339 17.3101 16.0423L17.3551 15.9973C18.215 15.1373 18.215 13.7316 17.3551 12.8714L16.2449 11.7546L16.2452 11.7549Z"
+                            fill="url(#paint0_linear_107_792)" />
+                        <defs>
+                            <linearGradient id="paint0_linear_107_792" x1="0" y1="0" x2="18.584" y2="0.624629"
+                                gradientUnits="userSpaceOnUse">
+                                <stop stop-color="#4CCE70" />
+                                <stop offset="1" stop-color="#01A77A" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                    <p class="header__up-flex-btn-text">
+                        Позвонить
+                    </p>
+                </a>
+            </div>
+            <div class="header__center">
+                <p class="header__center-uptitle">
+                    Служба аварийных комиссаров
+                </p>
+                <h1 class="header__center-title">
+                    Попали в ДТП? Выезжаем сразу после звонка
+                </h1>
+                <div class="header__center-list">
+                    <div class="header__center-list-item">
+                        <img class="header__center-list-item-svg" src="images/check.svg">
+                        <p class="header__center-list-item-text text-1">
+                            Среднее время прибытия до 5 минут
+                        </p>
+                    </div>
+                    <div class="header__center-list-item">
+                        <img class="header__center-list-item-svg" src="images/check.svg">
+                        <p class="header__center-list-item-text text-2">
+                            Определим виновника без ГИБДД
+                        </p>
+                    </div>
+                    <div class="header__center-list-item">
+                        <img class="header__center-list-item-svg" src="images/check.svg">
+                        <p class="header__center-list-item-text text-3">
+                            Грамотно оформим европротокол
+                        </p>
+                    </div>
+                    <div class="header__center-list-item">
+                        <img class="header__center-list-item-svg" src="images/check.svg">
+                        <p class="header__center-list-item-text text-4">
+                            Поможем в получении страхового возмещения
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <a href="tel:<?php echo $number ?>" class="header__bigbtn">
+                <svg class="header__bigbtn-svg" width="69" height="68" viewBox="0 0 69 68" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <g opacity="0.2" filter="url(#filter0_d_107_602)">
+                        <circle cx="34.5" cy="31" r="27.5" fill="#242424" />
+                    </g>
+                    <path
+                        d="M46.333 35.2089C45.0094 33.8949 42.8721 33.8949 41.5485 35.2089L40.7444 36.0227C40.0288 36.7384 38.9012 36.8463 38.0679 36.2777C34.8814 34.1006 32.1655 31.3844 29.9889 28.1973C29.4204 27.3638 29.528 26.2361 30.2439 25.5204L31.0576 24.7161C32.3713 23.3923 32.3713 21.2547 31.0576 19.9308L29.3516 18.2345C28.0379 16.9106 25.8907 16.9106 24.5083 18.3032C21.0176 21.794 20.5175 27.2067 23.3315 31.1785C26.567 35.7482 30.5179 39.6998 35.0868 42.9358C36.8125 44.1518 38.8027 44.75 40.8026 44.75C43.3909 44.75 45.9891 43.7401 47.9599 41.7591L48.0286 41.6904C49.3424 40.3764 49.3424 38.2289 48.0286 36.9146L46.3325 35.2084L46.333 35.2089Z"
+                        fill="white" />
+                    <defs>
+                        <filter id="filter0_d_107_602" x="0.888889" y="0.444444" width="67.2222" height="67.2222"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="3.05556" />
+                            <feGaussianBlur stdDeviation="3.05556" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix"
+                                values="0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0.15 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_107_602" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_107_602" result="shape" />
+                        </filter>
+                    </defs>
+                </svg>
+                <p class="header__bigbtn-text">
+                    Вызвать аварийного комиссара
+                </p>
+            </a>
+        </div>
+    </header>
+
+    <section class="control">
+        <div class="container">
+            <h2 class="control__title">
+                Аварийный комиссар возьмёт под контроль вашу ситуацию
+            </h2>
+            <div class="control__flex">
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__1.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text1">
+                        В течение 5 минут прибудет на место ДТП
+                    </p>
+                </div>
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__2.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text2">
+                        Окажет психологическую помощь
+                    </p>
+                </div>
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__3.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text3">
+                        Разберёт ДТП любой сложности
+                    </p>
+                </div>
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__4.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text4">
+                        Выполнит фото-
+                        и видеофиксацию
+                    </p>
+                </div>
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__5.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text5">
+                        Составит подробную схему ДТП
+                    </p>
+                </div>
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__6.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text6">
+                        Грамотно оформит европротокол
+                    </p>
+                </div>
+                <div class="control__flex-item">
+                    <img class="control__flex-item-ico" src="images/control__7.svg" alt="">
+                    <p class="control__flex-item-text control__flex-item-text7">
+                        Подготовит все документы для страховой компании
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <a href="tel:<?php echo $number ?>" class="bigbutton">
+        <div class="container">
+            <div class="bigbutton__flex">
+                <div class="bigbutton__flex-item">
+                    <p class="bigbutton__flex-item-text">
+                        Позвоните нам прямо сейчас
+                    </p>
+                    <p class="bigbutton__flex-item-subtext">
+                        Аварийный комиссар <b class="bigbutton__flex-item-subtext-b">приедет в течение 5 минут</b>
+                    </p>
+                </div>
+                <svg class="bigbutton__flex-svg" width="286" height="286" viewBox="0 0 286 286" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle class="bigbutton__circle" cx="143" cy="143" r="143" fill="white" fill-opacity="0.1" />
+                    <circle cx="143" cy="143" r="141.57" stroke="white" stroke-opacity="0.4" stroke-width="3" />
+                    <g filter="url(#filter0_d_107_1056)">
+                        <circle cx="143" cy="143" r="107" fill="url(#paint0_linear_107_1056)" />
+                    </g>
+                    <g filter="url(#filter1_d_107_1056)">
+                        <path
+                            d="M174.493 132.285C170.787 128.606 164.803 128.606 161.097 132.285L158.845 134.563C156.842 136.568 153.685 136.87 151.351 135.277C142.429 129.182 134.825 121.576 128.73 112.653C127.138 110.319 127.44 107.161 129.444 105.157L131.722 102.905C135.401 99.1984 135.401 93.213 131.722 89.5063L126.946 84.7565C123.267 81.0497 117.255 81.0497 113.384 84.9489C103.61 94.7233 102.21 109.879 110.089 121C119.149 133.795 130.211 144.859 143.004 153.92C147.836 157.325 153.409 159 159.008 159C166.256 159 173.531 156.172 179.049 150.625L179.241 150.433C182.92 146.754 182.92 140.741 179.241 137.061L174.492 132.284L174.493 132.285Z"
+                            fill="url(#paint1_linear_107_1056)" />
+                    </g>
+                    <path
+                        d="M101.481 196.31C102.334 196.563 102.988 196.977 103.441 197.55C103.894 198.123 104.121 198.83 104.121 199.67C104.121 200.91 103.648 201.877 102.701 202.57C101.768 203.263 100.428 203.61 98.681 203.61H91.781V189.61H98.301C99.9277 189.61 101.194 189.923 102.101 190.55C103.008 191.177 103.461 192.07 103.461 193.23C103.461 193.923 103.288 194.537 102.941 195.07C102.594 195.59 102.108 196.003 101.481 196.31ZM95.001 195.41H98.021C98.7277 195.41 99.261 195.27 99.621 194.99C99.981 194.697 100.161 194.27 100.161 193.71C100.161 193.163 99.9743 192.743 99.601 192.45C99.241 192.157 98.7143 192.01 98.021 192.01H95.001V195.41ZM98.561 201.21C100.081 201.21 100.841 200.61 100.841 199.41C100.841 198.25 100.081 197.67 98.561 197.67H95.001V201.21H98.561ZM113.463 194.21C115.17 194.21 116.477 194.59 117.383 195.35C118.303 196.11 118.763 197.237 118.763 198.73C118.763 200.317 118.257 201.53 117.243 202.37C116.243 203.197 114.83 203.61 113.003 203.61H106.683V189.61H109.903V194.21H113.463ZM112.823 201.21C113.663 201.21 114.317 201.003 114.783 200.59C115.263 200.177 115.503 199.577 115.503 198.79C115.503 197.337 114.61 196.61 112.823 196.61H109.903V201.21H112.823ZM120.543 189.61H123.763V203.61H120.543V189.61ZM135.21 196.31C136.023 196.59 136.656 197.03 137.11 197.63C137.576 198.217 137.81 198.903 137.81 199.69C137.81 200.543 137.53 201.283 136.97 201.91C136.41 202.537 135.65 203.017 134.69 203.35C133.743 203.683 132.703 203.85 131.57 203.85C130.61 203.85 129.65 203.73 128.69 203.49C127.743 203.25 126.843 202.883 125.99 202.39L126.99 200.07C127.603 200.443 128.276 200.73 129.01 200.93C129.756 201.117 130.483 201.21 131.19 201.21C132.15 201.21 132.943 201.037 133.57 200.69C134.21 200.343 134.53 199.857 134.53 199.23C134.53 198.71 134.31 198.317 133.87 198.05C133.443 197.783 132.856 197.65 132.11 197.65H128.69V195.21H131.87C132.523 195.21 133.03 195.077 133.39 194.81C133.763 194.543 133.95 194.177 133.95 193.71C133.95 193.163 133.683 192.737 133.15 192.43C132.63 192.123 131.956 191.97 131.13 191.97C130.516 191.97 129.883 192.057 129.23 192.23C128.576 192.39 127.956 192.637 127.37 192.97L126.39 190.45C127.87 189.69 129.47 189.31 131.19 189.31C132.283 189.31 133.29 189.47 134.21 189.79C135.13 190.11 135.863 190.577 136.41 191.19C136.956 191.803 137.23 192.517 137.23 193.33C137.23 193.997 137.05 194.59 136.69 195.11C136.33 195.63 135.836 196.03 135.21 196.31ZM150.075 196.31C150.928 196.563 151.581 196.977 152.035 197.55C152.488 198.123 152.715 198.83 152.715 199.67C152.715 200.91 152.241 201.877 151.295 202.57C150.361 203.263 149.021 203.61 147.275 203.61H140.375V189.61H146.895C148.521 189.61 149.788 189.923 150.695 190.55C151.601 191.177 152.055 192.07 152.055 193.23C152.055 193.923 151.881 194.537 151.535 195.07C151.188 195.59 150.701 196.003 150.075 196.31ZM143.595 195.41H146.615C147.321 195.41 147.855 195.27 148.215 194.99C148.575 194.697 148.755 194.27 148.755 193.71C148.755 193.163 148.568 192.743 148.195 192.45C147.835 192.157 147.308 192.01 146.615 192.01H143.595V195.41ZM147.155 201.21C148.675 201.21 149.435 200.61 149.435 199.41C149.435 198.25 148.675 197.67 147.155 197.67H143.595V201.21H147.155ZM164.757 200.61H158.257L157.017 203.61H153.697L159.937 189.61H163.137L169.397 203.61H165.997L164.757 200.61ZM163.737 198.15L161.517 192.79L159.297 198.15H163.737ZM181.251 192.25H176.771V203.61H173.571V192.25H169.111V189.61H181.251V192.25ZM190.065 194.21C191.772 194.21 193.078 194.59 193.985 195.35C194.905 196.11 195.365 197.237 195.365 198.73C195.365 200.317 194.858 201.53 193.845 202.37C192.845 203.197 191.432 203.61 189.605 203.61H183.285V189.61H186.505V194.21H190.065ZM189.425 201.21C190.265 201.21 190.918 201.003 191.385 200.59C191.865 200.177 192.105 199.577 192.105 198.79C192.105 197.337 191.212 196.61 189.425 196.61H186.505V201.21H189.425Z"
+                        fill="#01A77A" />
+                    <defs>
+                        <filter id="filter0_d_107_1056" x="21.7" y="27.42" width="242.6" height="242.6"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5.72" />
+                            <feGaussianBlur stdDeviation="7.15" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix"
+                                values="0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0.15 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_107_1056" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_107_1056"
+                                result="shape" />
+                        </filter>
+                        <filter id="filter1_d_107_1056" x="97.85" y="80.57" width="91.3" height="91.3"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5.72" />
+                            <feGaussianBlur stdDeviation="3.575" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix"
+                                values="0 0 0 0 0.100868 0 0 0 0 0.291667 0 0 0 0 0.239944 0 0 0 0.12 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_107_1056" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_107_1056"
+                                result="shape" />
+                        </filter>
+                        <linearGradient id="paint0_linear_107_1056" x1="143" y1="36" x2="143" y2="250"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" />
+                            <stop offset="1" stop-color="#CDE0DB" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_107_1056" x1="105" y1="82" x2="184.498" y2="84.672"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3ABC64" />
+                            <stop offset="1" stop-color="#01A77A" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </a>
+
+    <section class="what">
+        <div class="container">
+            <p class="what__title">
+                Что делать, если попали в ДТП?
+            </p>
+            <div class="what__flex">
+                <div class="what__flex-item">
+                    <p class="what__flex-item-nomber">
+                        01
+                    </p>
+                    <p class="what__flex-item-title">
+                        Сохраняйте спокойствие
+                    </p>
+                    <p class="what__flex-item-subtitle subtitle1">
+                        Если ДТП не серьезное, и пострадал только автомобиль - отпустите эмоциональное напряжение.
+                        Ничего
+                        страшного не произошло.
+                    </p>
+                </div>
+                <div class="what__flex-item">
+                    <p class="what__flex-item-nomber">
+                        02
+                    </p>
+                    <p class="what__flex-item-title">
+                        Заглушите автомобиль
+                    </p>
+                    <p class="what__flex-item-subtitle subtitle2">
+                        Ни в коем случае не совершайте движение на вашем автомобиле, не меняйте его положение,
+                        не собирайте обломки.
+                    </p>
+                </div>
+                <div class="what__flex-item">
+                    <p class="what__flex-item-nomber">
+                        03
+                    </p>
+                    <p class="what__flex-item-title">
+                        Обозначьте место ДТП
+                    </p>
+                    <p class="what__flex-item-subtitle subtitle3">
+                        Включите аварийную сигнализацию, выставьте на расстоянии нескольких метров от автомобиля знак
+                        аварийной остановки. Если знака нет - выставите любой другой заметный предмет, например бутылку
+                        с омывающей жидкостью.
+                    </p>
+                </div>
+                <div class="what__flex-item">
+                    <p class="what__flex-item-nomber">
+                        04
+                    </p>
+                    <p class="what__flex-item-title">
+                        Позвоните аварийному комиссару
+                    </p>
+                    <a href="tel:<?php echo $number ?>" class="what__flex-btn">
+                        <img src="images/phone.svg" alt="">
+                        <p class="header__up-flex-btn-text">
+                            Позвонить
+                        </p>
+                    </a>
+                    <p class="what__flex-item-subtitle subtitle4">
+                        Сообщите по телефону адрес и коротко опишите ситуацию. Свободный и ближайший к вам комиссар
+                        приедет через… минут и поможет вам в оформлении ДТП.
+                    </p>
+                </div>
+                <div class="what__flex-item">
+                    <p class="what__flex-item-nomber">
+                        05
+                    </p>
+                    <p class="what__flex-item-title">
+                        Дождитесь комиссара
+                    </p>
+                    <p class="what__flex-item-subtitle subtitle5">
+                        Аккуратно передвигайтесь рядом с ДТП, если машина находится на проезжей части. По возможности,
+                        для вашей безопасности — сядьте в машину или отойдите на тротуар и дождитесь приезда аварийного
+                        комиссара.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="container">
+            <div class="reviews__flex">
+                <p class="reviews__flex-title">
+                    Полезные статьи
+                </p>
+                <a href="#" class="reviews__flex-btn">
+                    <p class="reviews__flex-btn-text">
+                        Больше статей
+                    </p>
+                    <svg class="reviews__flex-btn-svg" width="7" height="14" viewBox="0 0 7 14" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M7 7.00002C7 7.23301 6.91597 7.46597 6.74825 7.6436L1.46804 13.2333C1.13215 13.5889 0.587565 13.5889 0.251814 13.2333C-0.0839378 12.8779 -0.0839377 12.3015 0.251814 11.9459L4.92404 7.00002L0.251978 2.05414C-0.0837731 1.69856 -0.083773 1.12222 0.251978 0.766813C0.58773 0.411061 1.13231 0.411061 1.4682 0.766813L6.74842 6.35645C6.91616 6.53416 7 6.76712 7 7.00002Z"
+                            fill="white" />
+                    </svg>
+                </a>
+            </div>
+            <div class="reviews__rev">
+                <?php foreach ($res as $item): ?>
+                    <div class="reviews__rev-item">
+                        <img src="<?php echo $item['image'] ?>" class="reviews__rev-item-img" alt="">
+                        <p class="reviews__rev-item-text">
+                            <?php echo $item['title'] ?>
+                        </p>
+                    </div>
+                <?php endforeach ?>
+            </div>
+        </div>
+    </section>
+
+    <a href="tel:<?php echo $number ?>" class="bigbutton2">
+        <div class="container">
+            <div class="bigbutton__flex">
+                <div class="bigbutton__flex-item">
+                    <p class="bigbutton__flex-item-text">
+                        Позвоните нам прямо сейчас
+                    </p>
+                    <p class="bigbutton__flex-item-subtext">
+                        Аварийный комиссар <b class="bigbutton__flex-item-subtext-b">приедет в течение 5 минут</b>
+                    </p>
+                </div>
+                <svg class="bigbutton__flex-svg" width="286" height="286" viewBox="0 0 286 286" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <circle class="bigbutton__circle" cx="143" cy="143" r="143" fill="white" fill-opacity="0.1" />
+                    <circle class="bigbutton__circle" cx="143" cy="143" r="141.57" stroke="white" stroke-opacity="0.4"
+                        stroke-width="2.86" />
+                    <g filter="url(#filter0_d_107_1056)">
+                        <circle cx="143" cy="143" r="107" fill="url(#paint0_linear_107_1056)" />
+                    </g>
+                    <g filter="url(#filter1_d_107_1056)">
+                        <path
+                            d="M174.493 132.285C170.787 128.606 164.803 128.606 161.097 132.285L158.845 134.563C156.842 136.568 153.685 136.87 151.351 135.277C142.429 129.182 134.825 121.576 128.73 112.653C127.138 110.319 127.44 107.161 129.444 105.157L131.722 102.905C135.401 99.1984 135.401 93.213 131.722 89.5063L126.946 84.7565C123.267 81.0497 117.255 81.0497 113.384 84.9489C103.61 94.7233 102.21 109.879 110.089 121C119.149 133.795 130.211 144.859 143.004 153.92C147.836 157.325 153.409 159 159.008 159C166.256 159 173.531 156.172 179.049 150.625L179.241 150.433C182.92 146.754 182.92 140.741 179.241 137.061L174.492 132.284L174.493 132.285Z"
+                            fill="url(#paint1_linear_107_1056)" />
+                    </g>
+                    <path
+                        d="M101.481 196.31C102.334 196.563 102.988 196.977 103.441 197.55C103.894 198.123 104.121 198.83 104.121 199.67C104.121 200.91 103.648 201.877 102.701 202.57C101.768 203.263 100.428 203.61 98.681 203.61H91.781V189.61H98.301C99.9277 189.61 101.194 189.923 102.101 190.55C103.008 191.177 103.461 192.07 103.461 193.23C103.461 193.923 103.288 194.537 102.941 195.07C102.594 195.59 102.108 196.003 101.481 196.31ZM95.001 195.41H98.021C98.7277 195.41 99.261 195.27 99.621 194.99C99.981 194.697 100.161 194.27 100.161 193.71C100.161 193.163 99.9743 192.743 99.601 192.45C99.241 192.157 98.7143 192.01 98.021 192.01H95.001V195.41ZM98.561 201.21C100.081 201.21 100.841 200.61 100.841 199.41C100.841 198.25 100.081 197.67 98.561 197.67H95.001V201.21H98.561ZM113.463 194.21C115.17 194.21 116.477 194.59 117.383 195.35C118.303 196.11 118.763 197.237 118.763 198.73C118.763 200.317 118.257 201.53 117.243 202.37C116.243 203.197 114.83 203.61 113.003 203.61H106.683V189.61H109.903V194.21H113.463ZM112.823 201.21C113.663 201.21 114.317 201.003 114.783 200.59C115.263 200.177 115.503 199.577 115.503 198.79C115.503 197.337 114.61 196.61 112.823 196.61H109.903V201.21H112.823ZM120.543 189.61H123.763V203.61H120.543V189.61ZM135.21 196.31C136.023 196.59 136.656 197.03 137.11 197.63C137.576 198.217 137.81 198.903 137.81 199.69C137.81 200.543 137.53 201.283 136.97 201.91C136.41 202.537 135.65 203.017 134.69 203.35C133.743 203.683 132.703 203.85 131.57 203.85C130.61 203.85 129.65 203.73 128.69 203.49C127.743 203.25 126.843 202.883 125.99 202.39L126.99 200.07C127.603 200.443 128.276 200.73 129.01 200.93C129.756 201.117 130.483 201.21 131.19 201.21C132.15 201.21 132.943 201.037 133.57 200.69C134.21 200.343 134.53 199.857 134.53 199.23C134.53 198.71 134.31 198.317 133.87 198.05C133.443 197.783 132.856 197.65 132.11 197.65H128.69V195.21H131.87C132.523 195.21 133.03 195.077 133.39 194.81C133.763 194.543 133.95 194.177 133.95 193.71C133.95 193.163 133.683 192.737 133.15 192.43C132.63 192.123 131.956 191.97 131.13 191.97C130.516 191.97 129.883 192.057 129.23 192.23C128.576 192.39 127.956 192.637 127.37 192.97L126.39 190.45C127.87 189.69 129.47 189.31 131.19 189.31C132.283 189.31 133.29 189.47 134.21 189.79C135.13 190.11 135.863 190.577 136.41 191.19C136.956 191.803 137.23 192.517 137.23 193.33C137.23 193.997 137.05 194.59 136.69 195.11C136.33 195.63 135.836 196.03 135.21 196.31ZM150.075 196.31C150.928 196.563 151.581 196.977 152.035 197.55C152.488 198.123 152.715 198.83 152.715 199.67C152.715 200.91 152.241 201.877 151.295 202.57C150.361 203.263 149.021 203.61 147.275 203.61H140.375V189.61H146.895C148.521 189.61 149.788 189.923 150.695 190.55C151.601 191.177 152.055 192.07 152.055 193.23C152.055 193.923 151.881 194.537 151.535 195.07C151.188 195.59 150.701 196.003 150.075 196.31ZM143.595 195.41H146.615C147.321 195.41 147.855 195.27 148.215 194.99C148.575 194.697 148.755 194.27 148.755 193.71C148.755 193.163 148.568 192.743 148.195 192.45C147.835 192.157 147.308 192.01 146.615 192.01H143.595V195.41ZM147.155 201.21C148.675 201.21 149.435 200.61 149.435 199.41C149.435 198.25 148.675 197.67 147.155 197.67H143.595V201.21H147.155ZM164.757 200.61H158.257L157.017 203.61H153.697L159.937 189.61H163.137L169.397 203.61H165.997L164.757 200.61ZM163.737 198.15L161.517 192.79L159.297 198.15H163.737ZM181.251 192.25H176.771V203.61H173.571V192.25H169.111V189.61H181.251V192.25ZM190.065 194.21C191.772 194.21 193.078 194.59 193.985 195.35C194.905 196.11 195.365 197.237 195.365 198.73C195.365 200.317 194.858 201.53 193.845 202.37C192.845 203.197 191.432 203.61 189.605 203.61H183.285V189.61H186.505V194.21H190.065ZM189.425 201.21C190.265 201.21 190.918 201.003 191.385 200.59C191.865 200.177 192.105 199.577 192.105 198.79C192.105 197.337 191.212 196.61 189.425 196.61H186.505V201.21H189.425Z"
+                        fill="#01A77A" />
+                    <defs>
+                        <filter id="filter0_d_107_1056" x="21.7" y="27.42" width="242.6" height="242.6"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5.72" />
+                            <feGaussianBlur stdDeviation="7.15" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix"
+                                values="0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0 0.141176 0 0 0 0.15 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_107_1056" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_107_1056"
+                                result="shape" />
+                        </filter>
+                        <filter id="filter1_d_107_1056" x="97.85" y="80.57" width="91.3" height="91.3"
+                            filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                            <feFlood flood-opacity="0" result="BackgroundImageFix" />
+                            <feColorMatrix in="SourceAlpha" type="matrix"
+                                values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha" />
+                            <feOffset dy="5.72" />
+                            <feGaussianBlur stdDeviation="3.575" />
+                            <feComposite in2="hardAlpha" operator="out" />
+                            <feColorMatrix type="matrix"
+                                values="0 0 0 0 0.100868 0 0 0 0 0.291667 0 0 0 0 0.239944 0 0 0 0.12 0" />
+                            <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_107_1056" />
+                            <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_107_1056"
+                                result="shape" />
+                        </filter>
+                        <linearGradient id="paint0_linear_107_1056" x1="143" y1="36" x2="143" y2="250"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="white" />
+                            <stop offset="1" stop-color="#CDE0DB" />
+                        </linearGradient>
+                        <linearGradient id="paint1_linear_107_1056" x1="105" y1="82" x2="184.498" y2="84.672"
+                            gradientUnits="userSpaceOnUse">
+                            <stop stop-color="#3ABC64" />
+                            <stop offset="1" stop-color="#01A77A" />
+                        </linearGradient>
+                    </defs>
+                </svg>
+            </div>
+        </div>
+    </a>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__flex-up">
+                <p class="footer__title">
+                    Служба аварийных комиссаров
+                </p>
+                <div class="footer__flex-up-div">
+                    <a href="tel:<?php echo $number ?>" class="footer__up-flex-item footer__item-2">
+                        <img class="footer__ico" src="images/phone.svg" alt="">
+                        <p class="header__up-flex-city footer__text">
+                            +7 (999) 999-99-99
+                        </p>
+                    </a>
+                    <div class="header__up-flex-item footer__item">
+                        <svg class="header__up-flex-svg" width="18" height="25" viewBox="0 0 18 25" fill="none"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M9.44133 24.3198C11.2502 22.5015 18 15.2879 18 8.88166C18 6.65881 17.0518 4.52676 15.364 2.955C13.676 1.383 11.3868 0.5 9 0.5C6.61315 0.5 4.32372 1.383 2.63597 2.955C0.948162 4.52681 0 6.65885 0 8.88166C0 15.2879 6.74958 22.5017 8.55867 24.3198C8.67252 24.4347 8.83231 24.5 9.00009 24.5C9.16787 24.5 9.32748 24.4347 9.44133 24.3198ZM4.30858 8.88166C4.30858 7.72319 4.80274 6.61195 5.68238 5.79276C6.56223 4.97338 7.75526 4.51319 8.99944 4.51319C10.2436 4.51319 11.4366 4.97338 12.3165 5.79276C13.1961 6.61195 13.6903 7.72319 13.6903 8.88166C13.6903 10.0403 13.1961 11.1516 12.3165 11.9708C11.4366 12.7899 10.2436 13.2503 8.99944 13.2503C7.75526 13.2503 6.56223 12.7899 5.68238 11.9708C4.80273 11.1516 4.30858 10.0403 4.30858 8.88166Z"
+                                fill="#01A77A" />
+                        </svg>
+                        <p class="header__up-flex-city">
+                            <?php echo $city ?>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="footer__flex-down">
+                <p class="footer__flex-down-text text-width1">
+                    © domen.ru, 2023<br>
+                    Все права защищены. Перепечатка и цитирование материалов — только с разрешения автора.
+                </p>
+                <a href="https://vcube.agency" class="footer__flex-down-text text-width3">
+                    Создание и продвижение сайта <b class="footer__flex-down-text-b">VCUBE</b>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>
